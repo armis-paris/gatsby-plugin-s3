@@ -4,15 +4,6 @@
   "description": "Enables you to deploy your gatsby site to a S3 bucket.",
   "main": "bin.js",
   "bin": "bin.js",
-  "scripts": {
-    "test": "jest",
-    "prepublish": "npm run build",
-    "build": "tsc --project .",
-    "typecheck": "tsc --project . --noEmit",
-    "develop": "babel --extensions=\".ts\" --out-dir=. src/ -w",
-    "snyk-protect": "snyk protect",
-    "prepare": "npm run snyk-protect"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jariz/gatsby-plugin-s3.git"
@@ -116,10 +107,6 @@
       "git add"
     ]
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run typecheck && lint-staged"
-    }
-  },
+  "husky": {},
   "snyk": true
 }
