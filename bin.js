@@ -256,17 +256,18 @@ const deploy = async ({ yes, bucket }) => {
             }
         }
         spinner.succeed('Synced.');
+        const bucketPrefixPath = config.bucketPrefix ? `/${config.bucketPrefix}` : '';
         if (config.enableS3StaticWebsiteHosting) {
             const s3WebsiteDomain = util_2.getS3WebsiteDomainUrl(region || 'us-east-1');
             console.log(chalk_1.default `
             {bold Your website is online at:}
-            {blue.underline http://${config.bucketName}.${s3WebsiteDomain}}
+            {blue.underline http://${config.bucketName}.${s3WebsiteDomain}${bucketPrefixPath}}
             `);
         }
         else {
             console.log(chalk_1.default `
             {bold Your website has now been published to:}
-            {blue.underline ${config.bucketName}}
+            {blue.underline ${config.bucketName}${bucketPrefixPath}}
             `);
         }
     }
