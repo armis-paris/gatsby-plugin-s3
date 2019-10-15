@@ -101,6 +101,7 @@ const deploy = async ({ yes, bucket }) => {
         const s3 = new s3_1.default({
             region: config.region,
             endpoint: config.customAwsEndpointHostname,
+            useAccelerateEndpoint: config.useAccelerateEndpoint || false
         });
         const { exists, region } = await getBucketInfo(config, s3);
         if (is_ci_1.default && !yes) {
