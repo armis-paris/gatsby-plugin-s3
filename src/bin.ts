@@ -124,6 +124,7 @@ const deploy = async ({ yes, bucket }: { yes: boolean, bucket: string }) => {
         const s3 = new S3({
             region: config.region,
             endpoint: config.customAwsEndpointHostname,
+            useAccelerateEndpoint: config.useAccelerateEndpoint || false
         });
 
         const { exists, region } = await getBucketInfo(config, s3);
